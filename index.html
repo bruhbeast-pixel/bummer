@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scratch Toolkit</title>
+  <link rel="icon" href="icon.png" type="image/png">
+  <style>
+    :root {
+      --light-bg-color: #ffffff;
+      --light-text-color: #000000;
+      --dark-bg-color: #181818;
+      --dark-text-color: #e0e0e0;
+      --card-bg-color-light: #f9f9f9;
+      --card-bg-color-dark: #242424;
+      --button-bg-color: #1da1f2;
+      --button-hover-color: linear-gradient(45deg, #ff6b6b, #f0c330, #32c1ff, #8b32ff);
+      --font-family: 'Century Gothic', Arial, sans-serif;
+    }
+
+    @keyframes rainbowGradient {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    body {
+      font-family: var(--font-family);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.light-mode {
+      background-color: var(--light-bg-color);
+      color: var(--light-text-color);
+    }
+
+    body.dark-mode {
+      background-color: var(--dark-bg-color);
+      color: var(--dark-text-color);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      text-align: center;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    .extension-description {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      background-color: var(--card-bg-color-light);
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, box-shadow 0.3s;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .dark-mode .extension-description {
+      background-color: var(--card-bg-color-dark);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .verified-badge {
+      width: 50px;
+      height: 50px;
+      margin-right: 20px;
+    }
+
+    .button {
+      display: block;
+      background-color: var(--button-bg-color);
+      color: white;
+      text-align: center;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 20px;
+      margin: 10px auto;
+      transition: background-color 0.3s, background-position 0.5s;
+      animation: bounceIn 1s ease-in-out;
+      background-size: 200% 200%;
+    }
+
+    .button:hover {
+      background: var(--button-hover-color);
+      background-size: 200% 200%;
+      animation: rainbowGradient 2s ease infinite;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes bounceIn {
+      from, 20%, 40%, 60%, 80%, to {
+        animation-timing-function: cubic-bezier(.215,.61,.355,1);
+      }
+      from {
+        opacity: 0;
+        transform: scale3d(.3,.3,.3);
+      }
+      20% {
+        transform: scale3d(1.1,1.1,1.1);
+      }
+      40% {
+        transform: scale3d(.9,.9,.9);
+      }
+      60% {
+        opacity: 1;
+        transform: scale3d(1.03,1.03,1.03);
+      }
+      80% {
+        transform: scale3d(.97,.97,.97);
+      }
+      to {
+        opacity: 1;
+        transform: scale3d(1,1,1);
+      }
+    }
+  </style>
+</head>
+<body class="light-mode">
+  <div class="container">
+    <h1>Scratch Toolkit</h1>
+    <p>The Scratch Extension Gallery.</p>
+    <p>All the extensions are recommended to run unsandboxed.</p>
+
+    <h2>Better Scratch</h2>
+    <div class="extension-description">
+      <img src="verified.png" alt="Verified Badge" class="verified-badge" title="This extension has been fully reviewed (every single block) and has been verified by Scratch Toolkit developers.">
+      <div>
+        <p>This Scratch extension adds 62 new blocks to Scratch editor.</p>
+        <p>Extension version: 1.6 Fixed</p>
+        <p>Extension developed by <a href="https://scratch.mit.edu/users/x1vova1x/">Connor/X1vova1x</a></p>
+      </div>
+    </div>
+    <button class="button" onclick="downloadFile('extensions/BetterScratch.js', 'BetterScratch.js')">Download Better Scratch</button>
+
+    <h2>Voxis</h2>
+    <div class="extension-description">
+        <img src="verified.png" alt="Verified Badge" class="verified-badge" title="This extension has been fully reviewed (every single block) and has been verified by Scratch Toolkit developers.">
+        <div>
+            <p>The best text-to-speech extension.</p>
+            <p>Extension version: 1</p>
+            <p>Extension developed by <a href="https://scratch.mit.edu/users/Dictive/">Dictive</a></p>
+        </div>
+    </div>
+    <button class="button" onclick="downloadFile('extensions/Voxis.js', 'Voxis.js')">Download Voxis</button>
+
+    <p></p>
+    <a href="https://forms.gle/Ufw4kuqkZYPWEAqy8" class="button">Add Extension</a>
+    <a href="https://forms.gle/tkgtuRvF1MCaTvUeA" class="button">Request Verification</a>
+    <a href="https://forms.gle/5ffSEC7aJvF6B8cB7" class="button">Update Extension</a>
+    <a href="https://forms.gle/1Qr7Y2mwcAivFimi7" class="button">Remove Extension</a>
+    <a href="credits.html" class="button">Credits</a>
+  </div>
+
+  <script>
+    function setLightMode() {
+      document.body.classList.add('light-mode');
+      document.body.classList.remove('dark-mode');
+    }
+
+    function setDarkMode() {
+      document.body.classList.add('dark-mode');
+      document.body.classList.remove('light-mode');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeSwitch = document.createElement('div');
+      themeSwitch.style.position = 'fixed';
+      themeSwitch.style.top = '10px';
+      themeSwitch.style.right = '10px';
+      themeSwitch.style.cursor = 'pointer';
+      themeSwitch.style.padding = '10px';
+      themeSwitch.style.borderRadius = '50%';
+      themeSwitch.style.backgroundColor = '#ccc';
+      themeSwitch.textContent = '🌓';
+      document.body.appendChild(themeSwitch);
+
+      themeSwitch.addEventListener('click', () => {
+        if (document.body.classList.contains('light-mode')) {
+          setDarkMode();
+        } else {
+          setLightMode();
+        }
+      });
+    });
+
+    function downloadFile(url, filename) {
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
